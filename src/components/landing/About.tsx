@@ -21,10 +21,10 @@ const About = () => {
               <div className="bg-muted rounded-3xl p-8 space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center">
-                    <Zap className="w-7 h-7 text-secondary" />
+                    <Zap className="w-7 h-7 text-primary" />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-foreground">10+ Years</p>
+                    <p className="text-2xl font-bold text-primary">10+ Years</p>
                     <p className="text-sm text-muted-foreground">Industry Experience</p>
                   </div>
                 </div>
@@ -41,7 +41,7 @@ const About = () => {
                   ))}
                 </div>
                 <div className="h-3 bg-muted rounded-full overflow-hidden">
-                  <div className="h-full bg-secondary rounded-full" style={{ width: "92%" }} />
+                  <div className="h-full bg-primary rounded-full" style={{ width: "92%" }} />
                 </div>
                 <p className="text-xs text-muted-foreground">Customer Satisfaction Score: 92%</p>
               </div>
@@ -57,11 +57,11 @@ const About = () => {
                 Empowering Car Rental Businesses Worldwide
               </h2>
             </div>
-            <p className="text-muted-foreground leading-relaxed">
-              RentFlow is the leading POS platform designed exclusively for car rental businesses. 
-              We combine powerful fleet management, automated bookings, and real-time analytics 
-              into one seamless solution that scales with your business.
-            </p>
+           <p className="text-muted-foreground leading-relaxed">
+  RentFlow is an all-in-one platform crafted for car rental businesses. 
+  From fleet management to automated bookings and real-time analytics, 
+  everything works seamlessly to help you operate smarter and scale faster.
+</p>
             <div className="grid sm:grid-cols-2 gap-5">
               {points.map((p, i) => (
                 <div
@@ -69,7 +69,7 @@ const About = () => {
                   className="flex gap-4 p-4 rounded-2xl hover:bg-muted transition-colors duration-200"
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center shrink-0">
                     <p.icon className="w-5 h-5 text-secondary" />
                   </div>
                   <div>

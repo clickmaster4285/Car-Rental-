@@ -6,55 +6,42 @@
 
 @layer base {
   :root {
-    --background: 210 33% 98%;
-    --foreground: 210 29% 13%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 210 29% 13%;
-
+    /* ---------------------- */
+    /* NEUTRALS */
+    --background: 0 0% 100%;           /* White background */
+    --foreground: 0 0% 13%;            /* Dark text */
+    --card: 0 0% 100%;                  /* White cards */
+    --card-foreground: 0 0% 13%;
     --popover: 0 0% 100%;
-    --popover-foreground: 210 29% 13%;
-
-    --primary: 214 72% 14%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 217 91% 54%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 210 20% 94%;
-    --muted-foreground: 215 16% 47%;
-
-    --accent: 38 92% 50%;
-    --accent-foreground: 214 72% 14%;
-
-    --destructive: 0 84% 60%;
+    --popover-foreground: 0 0% 13%;
+    --muted: 0 0% 90%;                  /* Light gray for borders/text */
+    --muted-foreground: 0 0% 50%;
+    --destructive: 0 75% 45%;           /* Red for alerts/danger actions */
     --destructive-foreground: 0 0% 100%;
-
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 217 91% 54%;
-
+    --border: 0 0% 85%;
+    --input: 0 0% 95%;
+    --ring: 0 75% 45%;
     --radius: 1rem;
-
-    /* Custom tokens */
-    --navy: 214 72% 14%;
-    --navy-light: 214 50% 22%;
-    --blue: 217 91% 54%;
-    --blue-light: 217 91% 64%;
-    --amber: 38 92% 50%;
-    --amber-light: 38 92% 60%;
-    --surface: 210 33% 98%;
+    --surface: 0 0% 100%;
     --surface-raised: 0 0% 100%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(214 72% 14%) 0%, hsl(214 50% 22%) 50%, hsl(217 91% 34%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(217 91% 54%), hsl(217 91% 64%));
-    --gradient-amber: linear-gradient(135deg, hsl(38 92% 50%), hsl(38 92% 60%));
-    --shadow-card: 0 4px 24px -4px hsl(214 72% 14% / 0.08);
-    --shadow-card-hover: 0 12px 40px -8px hsl(214 72% 14% / 0.15);
-    --shadow-glow: 0 0 40px hsl(217 91% 54% / 0.15);
+    /* ---------------------- */
+    /* RED + CHARCOAL + GOLD THEME */
+    --primary: 0 75% 45%;               /* Strong red for buttons / actions */
+    --primary-foreground: 0 0% 100%;    /* White text on red */
+    --secondary: 210 8% 20%;            /* Dark charcoal for headers / panels */
+    --secondary-foreground: 0 0% 100%;  /* White text on charcoal */
+    --accent: 51 100% 50%;              /* Gold / amber for highlights */
+    --accent-foreground: 0 0% 13%;      /* Dark text on gold */
+
+    /* Gradients & Shadows */
+    --gradient-hero: linear-gradient(135deg, hsl(0, 75%, 39%) 0%, hsl(210 8% 20%)  100%);
+    --gradient-accent: linear-gradient(135deg, hsl(51 100% 50%), hsl(51 100% 60%));
+    --shadow-card: 0 4px 24px -4px hsl(0 75% 45% / 0.08);
+    --shadow-card-hover: 0 12px 40px -8px hsl(0 75% 45% / 0.15);
+    --shadow-glow: 0 0 40px hsl(51 100% 50% / 0.15);
   }
 }
-
 @layer base {
   * {
     @apply border-border;

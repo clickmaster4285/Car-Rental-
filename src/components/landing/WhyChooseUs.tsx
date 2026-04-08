@@ -42,19 +42,19 @@ const WhyChooseUs = () => {
       </div>
       <div className="container mx-auto relative z-10" ref={ref}>
         <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <p className="text-sm font-semibold text-secondary uppercase tracking-wider mb-3">Why Choose Us</p>
+          <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-3">Why Choose Us</p>
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground">Numbers That Speak for Themselves</h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((s, i) => (
             <div
               key={s.label}
-              className={`glass-dark rounded-3xl p-8 text-center transition-all duration-500 hover:-translate-y-1 ${
+              className={`k rounded-3xl p-8 text-center transition-all duration-500 hover:-translate-y-1 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <p className="text-4xl md:text-5xl font-bold text-secondary mb-2">
+              <p className="text-4xl md:text-5xl font-bold text-accent mb-2">
                 <AnimatedCounter end={s.end} suffix={s.suffix} active={isVisible} />
               </p>
               <p className="font-semibold text-primary-foreground">{s.label}</p>

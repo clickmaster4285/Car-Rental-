@@ -42,11 +42,11 @@ const Testimonials = () => {
               }`}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <Quote className="w-8 h-8 text-secondary/20 mb-4" />
+              <Quote className="w-8 h-8 text-primary mb-4" />
               <p className="text-foreground leading-relaxed mb-6">{r.text}</p>
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: r.rating }).map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-amber text-amber" />
+                  <Star key={j} className="w-4 h-4 fill-accent text-accent" />
                 ))}
               </div>
               <div className="flex items-center gap-3">
