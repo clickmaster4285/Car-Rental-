@@ -27,7 +27,7 @@ const limiter = rateLimit({
 // Security & Middleware
 app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
 app.use(cors({
-  origin: [process.env.FRONTEND_URL || 'http://localhost:8080'],
+  origin: [process.env.FRONTEND_URL],
   credentials: true,
   methods: ["GET","POST","PUT","DELETE","PATCH","OPTIONS"],
   allowedHeaders: ["Content-Type","Authorization","X-Requested-With"]
