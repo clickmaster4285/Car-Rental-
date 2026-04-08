@@ -7,7 +7,7 @@ const rateLimit = require("express-rate-limit");
 const path = require("path");
 
 const connectDB = require("./config/db");
-const { initializeAdminAccount } = require("./config/bootstrap");
+
 const errorHandler = require("./middleware/errorHandler");
 const mainRouter = require("./routes/index");
 
@@ -27,7 +27,7 @@ const limiter = rateLimit({
 // Security & Middleware
 app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: [process.env.FRONTEND_URL || 'http://localhost:8080'],
   credentials: true,
   methods: ["GET","POST","PUT","DELETE","PATCH","OPTIONS"],
   allowedHeaders: ["Content-Type","Authorization","X-Requested-With"]
@@ -66,7 +66,7 @@ app.use(errorHandler);
 // Start server
 const startServer = async () => {
   try {
-    await initializeAdminAccount();
+   
     app.listen(PORT, () => {
       console.log(`🚀 Server running on port ${PORT}`);
       console.log(`📊 Health check: http://localhost:${PORT}/health`);
