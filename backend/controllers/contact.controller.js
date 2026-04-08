@@ -28,7 +28,7 @@ const autoReplyHtml = (name) => `
 const sendContactEmail = async (req, res) => {
   try {
     const { name, email, message, company, phone, services, budget } = req.body;
-
+console.log("Received contact form data:", req.body);
     // Basic validation
     if (!name || !email || !message) {
       return res.status(400).json({ success: false, message: "Name, email, and message are required" });

@@ -18,13 +18,13 @@ const FleetSection: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation();
 
 const vehicles: Vehicle[] = [
-  { id: 1, name: 'Car', imagePath: '/images/car.png', description: 'Compact & efficient' },
-  { id: 2, name: 'Standard SUV', imagePath: '/images/car2.png', description: 'Spacious & versatile' },
-  { id: 3, name: 'Minivan', imagePath: '/images/car1.jpg', description: 'Family-friendly comfort' },
-  { id: 4, name: 'Pickup Truck', imagePath: '/images/car4.avif', description: 'Heavy-duty performance' },
-  { id: 5, name: 'Luxury Sedan', imagePath: '/images/car5.png', description: 'Comfortable & premium ride' },
-  { id: 6, name: 'Convertible', imagePath: '/images/car6.png', description: 'Fun & stylish for city drives' },
-  { id: 7, name: 'Electric Car', imagePath: '/images/car7.png', description: 'Eco-friendly & modern' },
+  { id: 1, name: 'Car', imagePath: '/images/car.webp', description: 'Compact & efficient' },
+  { id: 2, name: 'Standard SUV', imagePath: '/images/car2.webp', description: 'Spacious & versatile' },
+  { id: 3, name: 'Minivan', imagePath: '/images/car1.webp', description: 'Family-friendly comfort' },
+  { id: 4, name: 'Pickup Truck', imagePath: '/images/car4.webp', description: 'Heavy-duty performance' },
+  { id: 5, name: 'Luxury Sedan', imagePath: '/images/car5.webp', description: 'Comfortable & premium ride' },
+  { id: 6, name: 'Convertible', imagePath: '/images/car6.webp', description: 'Fun & stylish for city drives' },
+  { id: 7, name: 'Electric Car', imagePath: '/images/car7.webp', description: 'Eco-friendly & modern' },
 ];
 
   return (
