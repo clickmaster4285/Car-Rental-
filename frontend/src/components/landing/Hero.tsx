@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 
 const Hero = () => {
   const backgroundImages = [
-    "/images/car-rental1.jpg",
-    "/images/car-rental2.jpg",
+    "/images/car-rental1.webp",
+    "/images/car-rental2.webp",
     "/images/car-rental3.webp",
     "/images/car-rental4.webp",
     "/images/car-rental5.webp",
