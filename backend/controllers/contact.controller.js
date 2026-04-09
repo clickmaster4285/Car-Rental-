@@ -11,12 +11,35 @@ const escapeHtml = (text) =>
 
 // HTML template for admin email
 const adminEmailHtml = (name, email, message, additionalInfo = {}) => `
-<h1>New Contact Submission</h1>
-<p><strong>Name:</strong> ${escapeHtml(name)}</p>
-<p><strong>Email:</strong> ${escapeHtml(email)}</p>
-${additionalInfo.phone ? `<p><strong>Phone:</strong> ${escapeHtml(additionalInfo.phone)}</p>` : ""}
-${additionalInfo.company ? `<p><strong>Company:</strong> ${escapeHtml(additionalInfo.company)}</p>` : ""}
-<p><strong>Message:</strong><br>${escapeHtml(message)}</p>
+<div style="font-family: Arial, sans-serif; background:#f4f4f4; padding:20px;">
+  <div style="max-width:600px; margin:auto; background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+    
+    <!-- Header -->
+    <div style="background: linear-gradient(135deg, #dc2626, #991b1b); color:white; padding:16px; font-size:20px; font-weight:bold;">
+      🚗 Car Rental Contact Form
+    </div>
+
+    <!-- Body -->
+    <div style="padding:20px; color:#333;">
+      <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+      <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+
+      ${additionalInfo.phone ? `<p><strong>Phone:</strong> ${escapeHtml(additionalInfo.phone)}</p>` : ""}
+      ${additionalInfo.company ? `<p><strong>Company:</strong> ${escapeHtml(additionalInfo.company)}</p>` : ""}
+
+      <p><strong>Message:</strong></p>
+      <div style="background:#f9fafb; padding:12px; border-radius:6px; border:1px solid #e5e7eb;">
+        ${escapeHtml(message)}
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="background:#f1f5f9; padding:12px; text-align:center; font-size:12px; color:#666;">
+      New contact form submission
+    </div>
+
+  </div>
+</div>
 `;
 
 // HTML template for auto-reply to user
@@ -27,8 +50,10 @@ const autoReplyHtml = (name) => `
 
 const sendContactEmail = async (req, res) => {
   try {
-    const { name, email, message, company, phone, services, budget } = req.body;
-console.log("Received contact form data:", req.body);
+    const { name, email, message, company, phone: rawPhone, services, budget } = req.body;
+    const phone = rawPhone?.trim() || '';
+    
+   
     // Basic validation
     if (!name || !email || !message) {
       return res.status(400).json({ success: false, message: "Name, email, and message are required" });
