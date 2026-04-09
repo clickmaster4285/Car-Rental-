@@ -11,95 +11,38 @@ const Hero = () => {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide();
+      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [currentImageIndex]);
-
-  const nextSlide = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setTimeout(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
-      setTimeout(() => setIsAnimating(false), 50);
-    }, 300);
-  };
-
-  const prevSlide = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setTimeout(() => {
-      setCurrentImageIndex((prev) => (prev - 1 + backgroundImages.length) % backgroundImages.length);
-      setTimeout(() => setIsAnimating(false), 50);
-    }, 300);
-  };
-
-  const goToSlide = (index: number) => {
-    if (isAnimating || index === currentImageIndex) return;
-    setIsAnimating(true);
-    setTimeout(() => {
-      setCurrentImageIndex(index);
-      setTimeout(() => setIsAnimating(false), 50);
-    }, 300);
-  };
-
-  const scrollToNext = () => {
-    const nextSection = document.getElementById("features");
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  }, [backgroundImages.length]);
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden flex items-center">
-      {/* Background Image Slider - Horizontal Slide */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="flex h-full transition-transform duration-700 ease-in-out"
-          style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
-        >
-          {backgroundImages.map((img, index) => (
-            <div
-              key={index}
-              className="min-w-full h-full flex-shrink-0 relative"
-              style={{
-                backgroundImage: `url(${img})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            />
-          ))}
-        </div>
+      {/* Background Image Slider - Fade Effect */}
+      <div className="absolute inset-0">
+        {backgroundImages.map((img, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
+            style={{
+              backgroundImage: `url(${img})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          />
+        ))}
         
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/20" />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/30" />
       </div>
-
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 md:left-8 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-300 flex items-center justify-center group"
-      >
-        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 md:right-8 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-300 flex items-center justify-center group"
-      >
-        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
 
       {/* Animated background shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -116,22 +59,22 @@ const Hero = () => {
               <span className="w-2 h-2 bg-amber rounded-full animate-pulse" />
               Trusted by 500+ rental businesses
             </div>
-          <h1
-  className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
-  style={{
-    textShadow: "0 2px 6px rgba(0,0,0,0.4)"
-  }}
->
-  The Complete{" "}
-  <span className="text-primary">Car Rental</span>{" "}
-  Management System
-</h1>
-       <p
-  className="text-lg text-white/80 max-w-lg leading-relaxed"
-  style={{ textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}
->
-  Automate bookings, manage your fleet, track payments, and grow your business — all from one powerful, intuitive platform.
-</p>
+            <h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+              style={{
+                textShadow: "0 2px 6px rgba(0,0,0,0.4)"
+              }}
+            >
+              The Complete{" "}
+              <span className="text-primary">Car Rental</span>{" "}
+              Management System
+            </h1>
+            <p
+              className="text-lg text-white/80 max-w-lg leading-relaxed"
+              style={{ textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}
+            >
+              Automate bookings, manage your fleet, track payments, and grow your business — all from one powerful, intuitive platform.
+            </p>
             <div className="flex flex-wrap gap-4">
               <a
                 href="#contact"
@@ -149,17 +92,20 @@ const Hero = () => {
           </div>
 
           {/* Right - Dashboard Mockup */}
-       
         </div>
       </div>
 
       {/* Scroll Indicator */}
       <div 
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer group"
-        onClick={scrollToNext}
+        onClick={() => {
+          const nextSection = document.getElementById("features");
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }}
       >
         <div className="flex flex-col items-center gap-2">
-          
           <div className="w-6 h-10 rounded-full border-2 border-white/40 flex justify-center group-hover:border-white/70 transition-colors duration-300">
             <div className="w-1 h-2 bg-white/60 rounded-full mt-2 animate-scroll-bounce group-hover:bg-white/90" />
           </div>
@@ -171,8 +117,8 @@ const Hero = () => {
         {backgroundImages.map((_, index) => (
           <button
             key={index}
-            onClick={() => goToSlide(index)}
-            className={`transition-all duration-300 rounded-full ${
+            onClick={() => setCurrentImageIndex(index)}
+            className={`transition-all duration-500 rounded-full ${
               currentImageIndex === index
                 ? "w-8 h-2 bg-white"
                 : "w-2 h-2 bg-white/40 hover:bg-white/60"
@@ -180,6 +126,49 @@ const Hero = () => {
           />
         ))}
       </div>
+
+      <style jsx>{`
+        @keyframes fade-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-fade-up {
+          animation: fade-up 0.8s ease-out forwards;
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+        
+        .animate-float {
+          animation: float 8s ease-in-out infinite;
+        }
+        
+        .animate-float-delayed {
+          animation: float 10s ease-in-out infinite 2s;
+        }
+        
+        .animate-float-slow {
+          animation: float 12s ease-in-out infinite 4s;
+        }
+        
+        @keyframes scroll-bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(8px); }
+        }
+        
+        .animate-scroll-bounce {
+          animation: scroll-bounce 2s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 };
