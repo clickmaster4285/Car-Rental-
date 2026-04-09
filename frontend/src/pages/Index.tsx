@@ -7,6 +7,7 @@ import FleetSection from "@/components/landing/FleetSection";
 import Testimonials from "@/components/landing/Testimonials";
 import Contact from "@/components/landing/Contact";
 import Footer from "@/components/landing/Footer";
+import Blog from "@/components/landing/Blogs";
 
 const Index = () => (
   <main>
@@ -17,6 +18,7 @@ const Index = () => (
     <WhyChooseUs />
     <FleetSection />
     <Testimonials />
+    <Blog />
     <Contact />
     <Footer />
   </main>

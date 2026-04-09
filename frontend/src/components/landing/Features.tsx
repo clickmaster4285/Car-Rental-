@@ -170,27 +170,33 @@ const Features = () => {
             </div>
           ))}
         </div>
+{/* Optimized CTA Section */}
+<div className={`mt-20 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+  <div className="border-2 border-primary/30 rounded-2xl shadow-2xl shadow-primary/10 bg-gradient-to-r from-secondary/5 via-background to-amber/5">
+    <div className="p-8 md:p-12 text-center">
+      <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
+        Ready to Transform Your{' '}
+        <span className="text-primary">Rental Business?</span>
+      </h3>
+      
+      <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+        Join thousands of satisfied rental businesses that have streamlined their operations with RentFlow.
+      </p>
+      
+      <a
+        href="#contact"
+        className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
+      >
+        Get Started Today
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
 
-        {/* Optimized CTA Section */}
-        <div className={`mt-20 text-center transition-all duration-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="rounded-3xl p-8 md:p-12 bg-gradient-to-r from-secondary/10 via-transparent to-amber/10 border border-white/20">
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Ready to Transform Your Rental Business?
-            </h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Join thousands of satisfied rental businesses that have streamlined their operations with RentFlow.
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-secondary text-white font-semibold hover:bg-secondary/90 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
-            >
-              Get Started Today
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-          </div>
-        </div>
+
       </div>
     </section>
   );

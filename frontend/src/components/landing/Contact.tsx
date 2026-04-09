@@ -184,7 +184,7 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-12 max-w-7xl">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className={`bg-surface-raised rounded-3xl p-8 space-y-5 transition-all duration-700 ${
+              className={`bg-surface-raised border rounded-3xl p-8 space-y-5 transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
               }`}
             >
