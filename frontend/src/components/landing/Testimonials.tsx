@@ -6,7 +6,7 @@ const reviews = [
   {
     name: "James Carter",
     role: "CEO, DriveEasy Rentals",
-    text: "RentFlow transformed our operations. We cut booking time by 60% and our customer satisfaction scores have never been higher.",
+    text: "RentFlow cut our booking time by 60% and significantly boosted customer satisfaction.",
     rating: 5,
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
     achievement: "Efficiency Champion",
@@ -172,10 +172,10 @@ const Testimonials = () => {
         <div className={`text-center mt-16 transition-all duration-700 delay-300 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}>
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 hover:from-primary/20 hover:to-secondary/20 transition-all duration-300 cursor-pointer group">
+          <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 hover:from-primary/20 hover:to-secondary/20 transition-all duration-300 cursor-pointer group no-underline">
             <span className="text-foreground font-medium">Join Our Success Stories</span>
             <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform duration-300" />
-          </div>
+          </a>
           
           {/* Stats */}
           <div className="flex justify-center gap-8 mt-8">
