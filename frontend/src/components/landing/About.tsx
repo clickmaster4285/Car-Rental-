@@ -30,6 +30,7 @@ const About = () => {
                 <img
                   src="/images/experience.webp"
                   alt="10+ Years Experience in Car Rental Industry"
+                   loading="lazy"
                   className="w-full h-auto object-cover"
                 />
               </div>
