@@ -128,6 +128,7 @@ const Testimonials = () => {
                           src={review.avatar}
                           alt={review.name}
                           className="w-12 h-12 rounded-full object-cover ring-2 ring-primary/20 group-hover/author:ring-4 transition-all duration-300"
+                           loading="lazy"
                         />
                         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary opacity-0 group-hover/author:opacity-20 transition-opacity duration-300" />
                       </>

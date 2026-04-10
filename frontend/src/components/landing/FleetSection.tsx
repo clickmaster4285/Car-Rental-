@@ -62,6 +62,7 @@ const vehicles: Vehicle[] = [
                   <img
                     src={vehicle.imagePath}
                     alt={vehicle.name}
+                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => { (e.target as HTMLImageElement).src = 'https://placehold.co/600x400/e2e8f0/475569?text=Vehicle'; }}
                   />
